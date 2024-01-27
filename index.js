@@ -114,7 +114,7 @@ client.on('messageCreate', async (message) => {
 
 	if (message.content === '!model') {
 		// Send the model name to the channel
-		await message.channel.send('Model name: `' + MODEL_NAME + '`');
+		await message.reply('Model name: `' + MODEL_NAME + '`');
 		return;
 	}
 
@@ -125,7 +125,7 @@ client.on('messageCreate', async (message) => {
 	isGenerating = true;
 
 	// Send the text cursor to the channel
-	const messageObject = await message.channel.send(textCursorString);
+	const messageObject = await message.reply(textCursorString);
 	previousMessage = textCursorString;
 
 	// Send the message to the model
