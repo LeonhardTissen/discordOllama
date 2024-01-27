@@ -45,7 +45,12 @@ function updateMessage(messageObject, result, generating) {
 		newMessage = '*No response*';
 	}
 	// Update the message with the new content
-	messageObject.edit(newMessage);
+	messageObject.edit({
+		content: newMessage,
+		allowedMentions: {
+			repliedUser: false
+		}
+	});
 
 	previousMessage = newMessage;
 
@@ -114,7 +119,12 @@ client.on('messageCreate', async (message) => {
 
 	if (message.content === '!model') {
 		// Send the model name to the channel
-		await message.reply('Model name: `' + MODEL_NAME + '`');
+		await message.reply({
+			content: 'Model name: `' + MODEL_NAME + '`',
+			allowedMentions: {
+				repliedUser: false
+			}
+		});
 		return;
 	}
 
@@ -125,7 +135,12 @@ client.on('messageCreate', async (message) => {
 	isGenerating = true;
 
 	// Send the text cursor to the channel
-	const messageObject = await message.reply(textCursorString);
+	const messageObject = await message.reply({
+		content: textCursorString,
+		allowedMentions: {
+			repliedUser: false
+		}
+	});
 	previousMessage = textCursorString;
 
 	// Send the message to the model
