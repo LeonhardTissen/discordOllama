@@ -5,6 +5,7 @@ Create a .env file in the root directory and add the following:
 ```
 BOT_TOKEN=PutYourBotTokenHere
 MODEL_NAME=llama2-uncensored
+CHANNEL_ID=1105962928529748028
 ```
 
 ```sh
