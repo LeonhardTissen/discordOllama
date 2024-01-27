@@ -127,6 +127,17 @@ client.on('messageCreate', async (message) => {
 		});
 		return;
 	}
+	if (message.content === '!clear') {
+		// Clear the previous messages
+		previousMessages.length = 0;
+		await message.reply({
+			content: 'Previous messages cleared',
+			allowedMentions: {
+				repliedUser: false
+			}
+		});
+		return;
+	}
 
 	// Dont respond to messages if the bot is generating a response
 	if (isGenerating && stopIfGenerating) return;
