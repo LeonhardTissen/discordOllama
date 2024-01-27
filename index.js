@@ -84,6 +84,9 @@ async function streamResponse(messageObject, content) {
 
 	// Update the message with the final result
 	updateMessage(messageObject, result, false);
+
+	// Add a new line to the console
+	process.stdout.write('\n');
 }
 
 client.once('ready', () => {
