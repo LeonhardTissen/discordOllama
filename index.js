@@ -112,6 +112,12 @@ client.on('messageCreate', async (message) => {
 	// Ignore messages that start with #
 	if (message.content.startsWith('#')) return;
 
+	if (message.content === '!model') {
+		// Send the model name to the channel
+		await message.channel.send('Model name: `' + MODEL_NAME + '`');
+		return;
+	}
+
 	// Dont respond to messages if the bot is generating a response
 	if (isGenerating && stopIfGenerating) return;
 
